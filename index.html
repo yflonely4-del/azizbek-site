@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой сайт</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbarContainer">
+      <div class="navbar">
+        <div class="nav-item active" data-color="#ffcc80">
+          <i class="fa-solid fa-house"></i>
+        </div>
+
+        <div class="nav-item" data-color="#81d4fa">
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+
+        <div class="nav-item" data-color="#b39ddb">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="nav-item" data-color="#a5d6a7">
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const container = document.querySelector(".navbarContainer");
+      const navItems = document.querySelectorAll(".nav-item");
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          // Удаляем активный класс у старой иконки
+          document.querySelector(".nav-item.active").classList.remove("active");
+          // Добавляем активный класс новой иконке
+          item.classList.add("active");
+
+          // Меняем цвет фона главного блока
+          const newColor = item.getAttribute("data-color");
+          container.style.backgroundColor = newColor;
+        });
+      });
+    </script>
+  </body>
+</html>
